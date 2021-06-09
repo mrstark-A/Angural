@@ -1,0 +1,29 @@
+<h1>The server component</h1>
+<p>
+  {{ "string interpolation" }} server with ID {{ ID }} and status
+  {{ getserverStatus() }}
+</p>
+<!-- here we gone a see property binding -->
+<button class="btn btn-primary" [disabled]="!notallow">Add items</button>
+<!-- property vs string interpolation -->
+<p [innerText]="status">this is me how are you</p>
+<!-- if yu want to change data you use string interpolation if need to change the property go with property binding -->
+
+<!-- Event binding -->
+<button class="btn btn-primary" (click)="onCreatedServer()">change</button>
+<p>{{ serverCreationStaus }}</p>
+
+<!-- passing and using data with event bindings -->
+
+<label>Server name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+<p>{{ serverName }}</p>
+<br />
+<br />
+<hr /> -->
+
+<!-- Two way data binding    -->
+
+<label>Server name</label>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<p>{{ serverName }}</p>
