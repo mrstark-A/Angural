@@ -1,29 +1,84 @@
-<h1>The server component</h1>
+<!-- <h1>The server component</h1>
 <p>
   {{ "string interpolation" }} server with ID {{ ID }} and status
   {{ getserverStatus() }}
-</p>
+</p> -->
+
+<!-- 🔥🔥🔥 ------end-----🔥🔥🔥 -->
+
 <!-- here we gone a see property binding -->
-<button class="btn btn-primary" [disabled]="!notallow">Add items</button>
+<!-- <button class="btn btn-primary" [disabled]="!notallow">Add items</button> -->
+
+<!-- ---- -->
+
 <!-- property vs string interpolation -->
-<p [innerText]="status">this is me how are you</p>
+<!-- <p [innerText]="status">this is me how are you</p> -->
+
 <!-- if yu want to change data you use string interpolation if need to change the property go with property binding -->
 
+<!-- ---- -->
+
 <!-- Event binding -->
-<button class="btn btn-primary" (click)="onCreatedServer()">change</button>
-<p>{{ serverCreationStaus }}</p>
+<!-- <button class="btn btn-primary" (click)="onCreatedServer()">change</button>
+<p>{{ serverCreationStaus }}</p> -->
 
 <!-- passing and using data with event bindings -->
 
-<label>Server name</label>
+<!-- <label>Server name</label> -->
 <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" />
 <p>{{ serverName }}</p>
 <br />
 <br />
 <hr /> -->
 
+<!-- ---- -->
+
 <!-- Two way data binding    -->
 
-<label>Server name</label>
-<input type="text" class="form-control" [(ngModel)]="serverName" />
-<p>{{ serverName }}</p>
+<!-- <label>Server name</label> -->
+<!-- two way binding ho rha hai  so what we type here set on serverName -->
+<!-- <input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+  [(ngModel)]="serverName"
+/> -->
+<!-- <input type="text" class="form-control" [(ngModel)]="serverName" /> -->
+<!-- <p>{{ serverName }}</p> -->
+
+<!-- <button class="btn btn-primary" (click)="onCreatedServer()">change</button> -->
+
+<!--  IF-------- -->
+
+<!-- IF ELSE  -->
+<!-- <p *ngIf="serveriscreated; else noServer">server is {{ serverName }}</p> -->
+<!-- NG-TEMPLATE -->
+<!-- <ng-template #noServer> <p>No server was created</p></ng-template> -->
+
+<!-- *ngif is structure directive it changes the dom  -->
+
+<!-- ---- -->
+<input
+  type="text"
+  class="form-control"
+  placeholder="server name"
+  (input)="onUpdateServerName($event)"
+/>
+<input
+  type="text"
+  class="form-control"
+  placeholder="services name"
+  (input)="onUpdateServiceName($event)"
+/>
+<button class="btn btn-primary" (click)="onCreatedServer()">change</button>
+
+<p
+  *ngFor="let server of service"
+  [ngStyle]="{ backgroundColor: getColor() }"
+  [ngClass]="{ online: serverStatus === 'online' }"
+>
+  seriver {{ serverName }} is {{ serverStatus }}
+  <br />
+
+  <strong>services is {{ server }}</strong>
+</p>

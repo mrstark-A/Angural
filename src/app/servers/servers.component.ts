@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   // attribute selector
   // selector:"[app-servers]",
   // class selector
-  selector: '.app-servers',
+  selector: 'app-servers',
   templateUrl: './servers.component.html',
   // using inline tamplate
   // template: `<app-server></app-server> `,
@@ -19,8 +19,12 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-export class ServersComponent implements OnInit {
-  constructor() {}
+export class ServersComponent {
+  showSecret = false;
+  log = [];
 
-  ngOnInit(): void {}
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length + 1);
+  }
 }
